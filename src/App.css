@@ -3,6 +3,7 @@
   --lightGrey: #F8F8F8;
   --mainWhite: #FFFFFF;
   --mainDark: #212121;
+  --mainButton: #6c757d;
   /* --mainCol: #42cc8c; */
 }
 
@@ -14,6 +15,16 @@ body {
 
 .text-title {
   text-transform: uppercase;
+}
+
+.bag-icon {
+  color: var(--mainButton);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.bag-icon:hover {
+    color: #535a5f;
 }
 
 .canvas-container {

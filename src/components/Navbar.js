@@ -16,7 +16,7 @@ export default class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item ml-lg-5">
-                        <Link to="/" className="nav-link">
+                        <Link to="/products" className="nav-link">
                             Men
                         </Link>
                     </li>
@@ -27,7 +27,7 @@ export default class Navbar extends Component {
                     </li>
                 </ul>
                 <Link to="/cart" className="ml-auto">
-                    <i className="fas fa-shopping-bag fa-2x text-dark ml-lg-5"></i>
+                    <i className="fas fa-shopping-bag fa-2x bag-icon"></i>
                 </Link>
                 </div>
             </NavWrapper>
@@ -36,7 +36,7 @@ export default class Navbar extends Component {
 }
 
 const NavWrapper = styled.nav`
-    background: var(--mainGrey);
+    background-color: var(--mainGrey);
     .nav-link {
         text-transform: uppercase;
     }

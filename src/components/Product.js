@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ProductCosumer } from '../context';
+import { ProductConsumer } from '../context';
 import { ButtonContainer } from './Button';
 import PropTypes from 'prop-types';
 
@@ -11,17 +11,22 @@ export default class Product extends Component {
         return (
             <div className="mx-auto mx-md-0 col-9 col-md-6 col-lg-4 my-3">
                 <div className="card bg-transparent border-0">
-                    <div className="img-container" onClick={() => console.log("image clicked")}>
-                        <Link to="/details">
-                            <img src={img} alt="trainer" className="card-img-top bg-transparent"/>
-                        </Link>
-                    </div>
-                    <div>
-                        <ButtonContainer disabled={!inStock ? true: inCart ? true : false} onClick={() => {console.log("added to cart");
-                        }}>
-                            {!inStock ? (<span disabled>Out of Stock</span>) : inCart ? (<span disabled>In Bag</span>) : (<span>Add to Bag</span>)}
-                        </ButtonContainer>
-                    </div>
+                    <ProductConsumer>
+                        {(value) => (                        
+                            <div className="img-container" onClick={() => value.handleDetail(id)}>
+                                <Link to="/details">
+                                    <img src={img} alt="trainer" className="card-img-top bg-transparent"/>
+                                </Link>
+                                <ButtonContainer disabled={!inStock ? true: inCart ? true : false} onClick={() => {
+                                    value.addToCart(id);
+                                    value.openModal(id);
+                                }}>
+                                    {!inStock ? (<span disabled>Out of Stock</span>) : inCart ? (<span disabled>In Bag</span>) : (<span>Add to Bag</span>)}
+                                </ButtonContainer>
+                            </div>
+                        )}
+
+                    </ProductConsumer>
                     <div className="card-footer bg-transparent p-0 pt-3">
                         <p className="mb-0 font-weight-bold text-uppercase">
                             {brand}
@@ -43,7 +48,7 @@ Product.propTypes = {
     product:PropTypes.shape({
         id:PropTypes.number,
         img:PropTypes.string,
-        images:PropTypes.string,
+        images:PropTypes.array,
         title:PropTypes.string,
         price:PropTypes.number,
         inCart:PropTypes.bool,

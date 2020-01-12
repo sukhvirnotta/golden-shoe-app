@@ -26,7 +26,10 @@ export default class Details extends Component {
                                         <p><strong>Colour:</strong> <span className="text-capitalize">{colour}</span></p>
                                         <br/>
                                         <div>
-                                            <ButtonContainer disabled={ !inStock ? true : inCart ? true : false }>
+                                            <ButtonContainer disabled={ !inStock ? true : inCart ? true : false } onClick={()=>{
+                                                value.addToCart(id);
+                                                value.openModal(id);
+                                            }}>
                                                 {!inStock ? "Out of Stock" : inCart ? "In Bag" : "Add to Bag"}
                                             </ButtonContainer>
                                         </div>
