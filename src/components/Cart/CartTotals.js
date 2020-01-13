@@ -12,16 +12,7 @@ export default function CartTotals({value}) {
                         <Title title="order summary"/>
                         <hr />
                         <p>
-                            {(() => {
-                            if (cart.length === 1) {
-                            return (
-                                <span>My bag ({cart.length} item)</span>
-                            )
-                            } else {
-                            return (
-                                <span>My bag ({cart.length} items)</span>
-                            )}})()}
-                            <span className="float-right">£{cartTotal.toFixed(2)}</span>
+                            My bag<span className="float-right">£{cartTotal.toFixed(2)}</span>
                         </p>
                         <p className="btn btn-link text-dark p-0">Add your promotion code</p>
                         <p>
