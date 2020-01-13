@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import { storeProducts, detailProduct } from './data';
+import axios from 'axios';
+import { testProduct } from './data';
 
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
+    
     state = {
-        products:[],
-        detailProduct:detailProduct,
-        cart:[],
-        modalOpen:true,
-        modalProduct:detailProduct
+        products: [],
+        detailProduct: testProduct,
+        cart: [],
+        modalOpen: true,
+        modalProduct: testProduct,
     };
+    
     componentDidMount(){
         this.setProducts();
     }
+
     setProducts = () => {
         let tempProducts = [];
-        storeProducts.forEach(item => {
-            const singleItem = {...item};
-            tempProducts = [...tempProducts, singleItem];
-        })
-        this.setState(() => {
-            return {products:tempProducts}
-        });
+        axios.get('http://localhost:5000/products/')
+            .then(response => {
+                response.data.forEach(item => {
+                    const singleItem = {...item};
+                    tempProducts = [...tempProducts, singleItem];
+                })
+                this.setState(() => {
+                    return {products:tempProducts}
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     };
 
     getItem = (id) => {
@@ -33,8 +43,8 @@ class ProductProvider extends Component {
     handleDetail = id => {
         const product = this.getItem(id);
         this.setState(() => {
-            return {detailProduct:product};
-        })
+          return { detailProduct: product };
+        });
     };
 
     addToCart = id => {

@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { ProductConsumer } from '../context';
 import { Link } from 'react-router-dom';
 import { ButtonContainer } from './Button';
-import Viewer from "./Viewer";
 
 export default class Details extends Component {
     render() {
         return (
             <ProductConsumer>
                 {(value) => {
-                    const {id, brand, title, img, images, price, colour, info, inCart, inStock} = value.detailProduct;
+                    const {id, brand, title, img, price, colour, info, inCart, inStock} = value.detailProduct;
                     return (
                         <div className="container py-5">
                             <div className="row">
                                     <div className="col-12 mx-auto col-lg-6 my-3">
                                         <div className="canvas-container">
-                                            <Viewer images={images} />
+                                            {/* <Viewer images={images} /> */}
+                                            <img src={img} className="img-fluid" alt="trainer" />
                                         </div>
                                     </div>
                                     <div className="col-12 mx-auto col-lg-6 my-3 text-lg-left text-center">
