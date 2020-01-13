@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { testProduct } from './data';
+import { detailProduct } from './data';
 
 const ProductContext = React.createContext();
 
@@ -8,10 +8,10 @@ class ProductProvider extends Component {
     
     state = {
         products: [],
-        detailProduct: testProduct,
+        detailProduct: detailProduct,
         cart: [],
-        modalOpen: true,
-        modalProduct: testProduct,
+        modalOpen: false,
+        modalProduct: detailProduct,
     };
     
     componentDidMount(){

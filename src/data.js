@@ -1,4 +1,4 @@
-export const testProduct = {
+export const detailProduct = {
     id: 1,
     title: "Air Force 1",
     img: "https://i8.amplience.net/i/jpl/jd_342035_a?qlt=92&w=1200&h=850&v=1&fmt=webp",
