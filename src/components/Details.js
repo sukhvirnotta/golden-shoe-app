@@ -13,10 +13,7 @@ export default class Details extends Component {
                         <div className="container py-5">
                             <div className="row">
                                     <div className="col-12 mx-auto col-lg-6 my-3">
-                                        <div className="canvas-container">
-                                            {/* <Viewer images={images} /> */}
-                                            <img src={img} className="img-fluid" alt="trainer" />
-                                        </div>
+                                        <img src={img} className="img-fluid" alt="trainer" />
                                     </div>
                                     <div className="col-12 mx-auto col-lg-6 my-3 text-lg-left text-center">
                                         <h3 className="font-weight-bold text-uppercase">{brand}</h3>
