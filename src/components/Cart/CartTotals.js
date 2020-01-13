@@ -3,7 +3,7 @@ import { ButtonContainer } from '../Button';
 import Title from '../Title';
 
 export default function CartTotals({value}) {
-    const{cart, cartTotal} = value;
+    const{cartTotal} = value;
     return (
         <React.Fragment>
             <div className="container col-10 order-summary-container p-5">
