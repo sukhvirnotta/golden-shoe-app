@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ProductConsumer } from '../context';
 import { ButtonContainer } from './Button';
+import { Link } from 'react-router-dom';
 
 export default class Details extends Component {
     render() {
@@ -10,6 +11,10 @@ export default class Details extends Component {
                     const {id, brand, title, img, price, colour, info, inCart, inStock} = value.detailProduct;
                     return (
                         <div className="container py-5">
+                            <Link to ="/products">
+                                <i className="fas fa-long-arrow-alt-left text-dark align-middle"></i>
+                                <span className="fas text-uppercase text-dark back-to-results">&nbsp;&nbsp;back to results</span>
+                            </Link>
                             <div className="row">
                                     <div className="col-12 mx-auto col-lg-6 my-3">
                                         <img src={img} className="img-fluid" alt="trainer" />
@@ -27,6 +32,11 @@ export default class Details extends Component {
                                                 value.openModal(id);
                                             }}>
                                                 {!inStock ? "Out of Stock" : inCart ? "In Bag" : "Add to Bag"}
+                                            </ButtonContainer>
+                                        </div>
+                                        <div className="my-3">
+                                            <ButtonContainer back>
+                                                <i className="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Check Store
                                             </ButtonContainer>
                                         </div>
                                     </div>
