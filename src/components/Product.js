@@ -46,10 +46,10 @@ export default class Product extends Component {
 Product.propTypes = {
     product:PropTypes.shape({
         id:PropTypes.number,
-        img:PropTypes.string,
-        images:PropTypes.array,
         title:PropTypes.string,
+        img:PropTypes.string,
         price:PropTypes.number,
+        brand:PropTypes.string,
         inCart:PropTypes.bool,
         inStock:PropTypes.bool
     }).isRequired

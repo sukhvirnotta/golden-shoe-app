@@ -6,7 +6,6 @@ export default class Navbar extends Component {
     render() {
         return (
             <NavWrapper className="navbar sticky-top navbar-expand-lg navbar-light px-sm-5">
-                {/* https://www.flaticon.com/authors/freepik" */}
                 <Link to='/'>
                     <h3 className="navbar-brand font-weight-bold text-uppercase">Golden Shoe</h3>
                 </Link>
